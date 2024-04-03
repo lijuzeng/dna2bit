@@ -17,7 +17,7 @@
 using namespace std;
 KSEQ_INIT(gzFile, gzread)
 
-/* read 序列编码成 distance vector */
+/* genome sequence encode to distance vector */
 void read2dis_wy(const char *read, const size_t sliding_len, vector<long> &dis) {
     size_t length = strlen(read), vec_size = dis.size();
     for (size_t i = 0; i < length - sliding_len; ++i) {
@@ -35,7 +35,7 @@ void read2dis_mu(const char *read, const size_t sliding_len, vector<long> &dis) 
         dis[(hash & 0x7FFFFFFFFFFFFFFF) % (vec_size)] += 2 * (long)(hash >> 63) - 1;
     }
 }
-/* read 与其互补链的 distance vector */
+/* sequence and complementary sequence distance vector */
 void reads2dis_wy(const char *code, const char *read, const size_t sliding_len, vector<long> &dis) {
     char *com;
     size_t length = strlen(read);
@@ -56,12 +56,12 @@ void reads2dis_mu(const char *code, const char *read, const size_t sliding_len, 
     read2dis_mu(com, sliding_len, dis);
     free(com);
 }
-/* 将 distance vector 变为 bit vector */
+/* distance vector to bit vector */
 inline void dis2bit(vector<long> &bit) {
     size_t len = bit.size();
     for (size_t i = 0; i < len; ++i) {bit[i] = (bit[i] >> 63) + 1;}
 }
-/* 对 基因组 文件的处理 */
+/* processing genome files */
 void HandleFaFile_wy(gzFile *in, const char *code, size_t sli, vector<long> &bit) {
     kseq_t *seq = kseq_init(*in);
     while (kseq_read(seq) >= 0) reads2dis_wy(code, seq->seq.s, sli, bit);
@@ -93,7 +93,7 @@ void HandleFaFile_mu(gzFile *in, const char *code, size_t sli, vector<long> &bit
     while (kseq_read(seq) >= 0) reads2dis_mu(code, seq->seq.s, sli, bit);
     kseq_destroy(seq);
 }
-/* 写出 二进制 的 bit 文件 */
+/* write to bit files */
 void BitOut(FILE *out, const vector<long> &bit) {
     size_t len = bit.size(), cnt = len / 64;
     for (size_t i = 0; i < cnt; ++i) {
