@@ -1,5 +1,5 @@
 # dna2bit
-dna2bit: a ultra-fast and accurate genomic distance esimation software
+dna2bit: an ultra-fast and accurate genomic distance esimation software
 ## **Complie**
 ```
 git clone https://github.com/lijuzeng/dna2bit.git
