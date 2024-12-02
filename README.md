@@ -27,7 +27,7 @@ for a list of genome files
 -n 10: 10 threads, -F files.txt: the each line of 'files.txt' is the path to genome file  
 
 ### **dist**
-for two sketched file to calculate distance metic  
+for two sketched file to calculate distance metric
 `dna2bit dist -p genome1.fna.k.17.l.8192.bit genome2.fna.k.17.l.8192.bit`  
 
 for a list of sketched files  
