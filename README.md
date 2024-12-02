@@ -1,6 +1,6 @@
 # dna2bit
-dna2bit: an ultra-fast and accurate genomic distance esimation software
-## **Complie**
+dna2bit: an ultra-fast and accurate genomic distance estimation software
+## **Compilation**
 ```
 git clone https://github.com/lijuzeng/dna2bit.git
 cd dna2bit/src
