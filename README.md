@@ -1,7 +1,7 @@
 # dna2bit
 dna2bit: an ultra-fast and accurate genomic distance estimation software
 ## **Compilation**
-dna2bit is a software tool developed in C++14, leveraging the capabilities of OpenMP for parallel computing and the popcount technique for efficient bit manipulation. It has been thoroughly tested using the g++ and clang compilers on both Linux and MacOS platforms.
+dna2bit is a software tool developed in C++11, leveraging the capabilities of OpenMP for parallel computing and the popcount technique for efficient bit manipulation. It has been thoroughly tested using the g++ and clang compilers on both Linux and MacOS platforms.
 
 To install from source code, please clone this repository first.
 
