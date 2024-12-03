@@ -20,7 +20,7 @@ Detailed instruction in the makefile is
 g++ dna2bit.cpp -o dna2bit -O3 -Wall -march=native -fopenmp -lz
 ```
 
-For OSX users, we recommend installing `llvm` and `lib` via Homebrew before compiling dna2bit to ensure compatibility and utilize the latest compiler features.
+For OSX users, we recommend installing `llvm` and `libomp` via Homebrew before compiling dna2bit to ensure compatibility and utilize the latest compiler features.
 ```
 brew install llvm libomp
 g++ dna2bit.cpp -o dna2bit -O3 -Wall -march=native -Xpreprocessor -fopenmp -L/usr/local/opt/libomp/lib -I/usr/local/opt/libomp/include -lomp -lz
